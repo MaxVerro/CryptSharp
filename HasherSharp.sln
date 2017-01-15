@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HasherSharp", "CryptSharp\HasherSharp.csproj", "{E9A094B3-EC58-43AC-91FC-AA5064E3C6E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HasherSharp", "HasherSharp\HasherSharp.csproj", "{E9A094B3-EC58-43AC-91FC-AA5064E3C6E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HasherSharpTest", "HasherSharpTest\HasherSharpTest.csproj", "{6A67F107-41C9-4789-B319-62E8B57A6D64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HasherSharpConsole", "HasherSharpConsole\HasherSharpConsole.csproj", "{05D1E8FE-772D-4367-B16D-2B2621C179DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6A67F107-41C9-4789-B319-62E8B57A6D64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A67F107-41C9-4789-B319-62E8B57A6D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A67F107-41C9-4789-B319-62E8B57A6D64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05D1E8FE-772D-4367-B16D-2B2621C179DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D1E8FE-772D-4367-B16D-2B2621C179DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D1E8FE-772D-4367-B16D-2B2621C179DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D1E8FE-772D-4367-B16D-2B2621C179DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -61,13 +61,6 @@ namespace HasherSharp
         /// </summary>
         private RNGCryptoServiceProvider _rngCsp;
 
-        /// <summary>
-        /// HasherSharpConfig 
-        /// 
-        /// 
-        /// </summary>
-        protected HasherSharpConfig _config;
-
         #endregion
 
         #region Public Members
@@ -81,7 +74,7 @@ namespace HasherSharp
         {
             get
             {
-                return ConfigurationManager.GetSection("hasherSharpConfig") as HasherSharpConfig ?? new HasherSharpConfig();
+                    return ConfigurationManager.GetSection("hasherSharpConfig") as HasherSharpConfig ?? new HasherSharpConfig();
             }
         }
 
@@ -114,7 +107,7 @@ namespace HasherSharp
         /// <returns></returns>
         protected virtual byte[] GenerateSalt()
         {
-            byte[] salt = new byte[_config.SaltBytesLength];
+            byte[] salt = new byte[Config.SaltBytesLength];
 
             _rngCsp.GetBytes(salt);
 
@@ -154,7 +147,7 @@ namespace HasherSharp
         /// <param name="hash"></param>
         /// <returns></returns>
         public static string FormatHash(string algorith, int iterations, int hashBytesLength, string salt, string hash)
-                => $"{algorith}|{iterations}|{hashBytesLength}|{salt}|{hashBytesLength}";
+                => $"{algorith}|{iterations}|{hashBytesLength}|{salt}|{hash}";
 
         /// <summary>
         /// 

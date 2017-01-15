@@ -21,12 +21,12 @@ namespace HasherSharp
         public override string HashPassword(string password)
         {
             byte[] salt = GenerateSalt();
-            byte[] hash = PBKDF2(password, salt, _config.Iterations, _config.HashBytesLength);
+            byte[] hash = PBKDF2(password, salt, Config.Iterations, Config.HashBytesLength);
 
             string saltString = Convert.ToBase64String(salt);
             string hashString = Convert.ToBase64String(hash);
 
-            return Hasher.FormatHash(_config.Algorithm, _config.Iterations, _config.HashBytesLength, saltString, hashString);
+            return Hasher.FormatHash(Config.Algorithm, Config.Iterations, Config.HashBytesLength, saltString, hashString);
         }
 
         /// <summary>
@@ -49,10 +49,10 @@ namespace HasherSharp
                 ParseHashSections(Hasher.SplitHash(validPasswordHash), out algorith, out iterations, out salt, out hash);
 
                 //TODO: 
-                if (algorith != _config.Algorithm ||
-                    iterations != _config.Iterations ||
-                    salt.Length != _config.SaltBytesLength ||
-                    hash.Length != _config.HashBytesLength)
+                if (algorith != Config.Algorithm ||
+                    iterations != Config.Iterations ||
+                    salt.Length != Config.SaltBytesLength ||
+                    hash.Length != Config.HashBytesLength)
                 {
                     requireHashUpdate = true;
                 }
@@ -99,14 +99,14 @@ namespace HasherSharp
             if ((algorith = sections[Hasher.ALGORITHM_INDEX]) != "HMACSHA1")
             {
                 //TODO: Create custom exception.
-                throw new ArgumentException("Unsupported hashing algorith", "algorith");
+                throw new HashSectionException("Unsupported hashing algorith", "algorith");
             }
 
             //TODO: 
             if (!Int32.TryParse(sections[Hasher.ITERATION_INDEX], out iterations) || iterations <= 0)
             {
                 //TODO: Create custom exception.
-                throw new ArgumentException("Invalid number of iterations.", "iterations");
+                throw new HashSectionException("Invalid number of iterations.", "iterations");
             }
 
             //TODO: 
